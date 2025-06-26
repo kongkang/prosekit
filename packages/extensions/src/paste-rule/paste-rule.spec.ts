@@ -30,8 +30,7 @@ function replaceTextInSlice(slice: Slice, from: string, to: string): Slice {
 }
 
 function replaceTextInFragment(fragment: Fragment, from: string, to: string): Fragment {
-  const nodes = collectChildren(fragment)
-  return Fragment.fromArray(nodes.map(node => replaceTextInNode(node, from, to)))
+  return Fragment.fromArray(fragment.content.map(node => replaceTextInNode(node, from, to)))
 }
 
 function replaceTextInNode(node: ProseMirrorNode, from: string, to: string): ProseMirrorNode {
