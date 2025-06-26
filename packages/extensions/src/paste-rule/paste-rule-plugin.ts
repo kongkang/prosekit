@@ -5,6 +5,7 @@ import {
   type PlainExtension,
   type PluginPayload,
 } from '@prosekit/core'
+import { toReversed } from '@prosekit/core'
 import type { Slice } from '@prosekit/pm/model'
 import {
   PluginKey,
@@ -34,10 +35,7 @@ const pasteRuleFacet = defineFacet<PasteRulePayload, PluginPayload>({
     })
 
     return (inputs: PasteRulePayload[]) => {
-      handlers.length = 0
-      for (const input of inputs) {
-        handlers.push(input)
-      }
+      handlers = [...inputs].reverse() // TODO: test it
       return plugin
     }
   },
