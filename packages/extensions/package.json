@@ -55,6 +55,7 @@
     "./mention": "./src/mention/index.ts",
     "./mod-click-prevention": "./src/mod-click-prevention/index.ts",
     "./paragraph": "./src/paragraph/index.ts",
+    "./paste-rule": "./src/paste-rule/index.ts",
     "./placeholder": "./src/placeholder/index.ts",
     "./placeholder/style.css": "./src/placeholder/style.css",
     "./readonly": "./src/readonly/index.ts",
