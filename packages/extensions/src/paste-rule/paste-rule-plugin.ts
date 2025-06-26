@@ -5,7 +5,6 @@ import {
   type PlainExtension,
   type PluginPayload,
 } from '@prosekit/core'
-import { toReversed } from '@prosekit/core'
 import type { Slice } from '@prosekit/pm/model'
 import {
   PluginKey,
