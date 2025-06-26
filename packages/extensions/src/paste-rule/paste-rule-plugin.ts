@@ -34,7 +34,8 @@ const pasteRuleFacet = defineFacet<PasteRulePayload, PluginPayload>({
     })
 
     return (inputs: PasteRulePayload[]) => {
-      handlers = [...inputs].reverse() // TODO: test it
+      // Last added rule (highest priority) is applied first
+      handlers = [...inputs].reverse()
       return plugin
     }
   },
