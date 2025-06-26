@@ -1,6 +1,8 @@
 import {
   collectChildren,
+  Priority,
   union,
+  withPriority,
   type PlainExtension,
 } from '@prosekit/core'
 import type { ProseMirrorNode } from '@prosekit/pm/model'
@@ -70,5 +72,26 @@ describe('paste rule', () => {
     editor.view.pasteText('Foo')
     expect(editor.getDocHTML()).not.toContain(`Foo`)
     expect(editor.getDocHTML()).toContain(`Bar`)
+  })
+
+  it('can order multiple paste rules', () => {
+    const extension = union(
+      defineTestExtension(),
+      withPriority(defineTextReplacePasteRule('Foo', 'Bar'), Priority.high),
+      withPriority(defineTextReplacePasteRule('Foo', 'Baz'), Priority.low),
+    )
+    const { editor } = setupTestFromExtension(extension)
+    editor.view.pasteText('Foo')
+    expect(editor.getDocHTML()).not.toContain(`Foo`)
+    expect(editor.getDocHTML()).toContain(`Bar`)
+    expect(editor.getDocHTML()).not.toContain(`Baz`)
+
+    editor.use(defineTextReplacePasteRule('Bar', 'Qux'))
+    editor.setContent('')
+    editor.view.pasteText('Foo')
+    expect(editor.getDocHTML()).not.toContain(`Foo`)
+    expect(editor.getDocHTML()).not.toContain(`Bar`)
+    expect(editor.getDocHTML()).not.toContain(`Baz`)
+    expect(editor.getDocHTML()).toContain(`Qux`)
   })
 })
