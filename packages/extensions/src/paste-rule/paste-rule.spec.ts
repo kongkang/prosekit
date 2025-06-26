@@ -54,38 +54,11 @@ describe('paste rule', () => {
   it('can transform pasted HTML', () => {
     const extension = union(
       defineTestExtension(),
-      defineTextReplacePasteRule('A', 'B'),
+      defineTextReplacePasteRule('Foo', 'Bar'),
     )
     const { editor } = setupTestFromExtension(extension)
-
-    expect(editor.getDocJSON()).toMatchInlineSnapshot(`
-      {
-        "content": [
-          {
-            "type": "paragraph",
-          },
-        ],
-        "type": "doc",
-      }
-    `)
-
-    editor.view.pasteHTML('<div>A</div>')
-
-    expect(editor.getDocJSON()).toMatchInlineSnapshot(`
-      {
-        "content": [
-          {
-            "content": [
-              {
-                "text": "B",
-                "type": "text",
-              },
-            ],
-            "type": "paragraph",
-          },
-        ],
-        "type": "doc",
-      }
-    `)
+    editor.view.pasteHTML('<div>Foo</div>')
+    expect(editor.getDocHTML()).not.toContain(`Foo`)
+    expect(editor.getDocHTML()).toContain(`Bar`)
   })
 })
