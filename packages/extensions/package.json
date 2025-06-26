@@ -115,6 +115,7 @@
   "devDependencies": {
     "@prosekit/config-tsdown": "workspace:*",
     "@prosekit/config-vitest": "workspace:*",
+    "@total-typescript/shoehorn": "^0.1.2",
     "@vitest/browser": "^3.2.4",
     "just-pick": "^4.2.0",
     "loro-crdt": "^1.5.9",
