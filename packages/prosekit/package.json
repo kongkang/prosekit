@@ -1022,7 +1022,6 @@
   "dev": {
     "entry": {
       "prosekit": "./src/index.ts",
-      "prosekit-pm": "./src/pm.ts",
       "prosekit-pm-commands": "./src/pm/commands.ts",
       "prosekit-pm-history": "./src/pm/history.ts",
       "prosekit-pm-inputrules": "./src/pm/inputrules.ts",
