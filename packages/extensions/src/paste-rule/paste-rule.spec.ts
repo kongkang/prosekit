@@ -1,5 +1,4 @@
 import {
-  collectChildren,
   Priority,
   union,
   withPriority,
