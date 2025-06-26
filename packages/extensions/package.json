@@ -242,6 +242,10 @@
         "types": "./dist/prosekit-extensions-paragraph.d.ts",
         "default": "./dist/prosekit-extensions-paragraph.js"
       },
+      "./paste-rule": {
+        "types": "./dist/prosekit-extensions-paste-rule.d.ts",
+        "default": "./dist/prosekit-extensions-paste-rule.js"
+      },
       "./placeholder": {
         "types": "./dist/prosekit-extensions-placeholder.d.ts",
         "default": "./dist/prosekit-extensions-placeholder.js"
@@ -379,6 +383,9 @@
         "paragraph": [
           "./dist/prosekit-extensions-paragraph.d.ts"
         ],
+        "paste-rule": [
+          "./dist/prosekit-extensions-paste-rule.d.ts"
+        ],
         "placeholder": [
           "./dist/prosekit-extensions-placeholder.d.ts"
         ],
@@ -443,6 +450,7 @@
       "prosekit-extensions-mention": "./src/mention/index.ts",
       "prosekit-extensions-mod-click-prevention": "./src/mod-click-prevention/index.ts",
       "prosekit-extensions-paragraph": "./src/paragraph/index.ts",
+      "prosekit-extensions-paste-rule": "./src/paste-rule/index.ts",
       "prosekit-extensions-placeholder": "./src/placeholder/index.ts",
       "placeholder/style": "./src/placeholder/style.css",
       "prosekit-extensions-readonly": "./src/readonly/index.ts",
