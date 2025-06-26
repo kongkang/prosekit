@@ -61,4 +61,15 @@ describe('paste rule', () => {
     expect(editor.getDocHTML()).not.toContain(`Foo`)
     expect(editor.getDocHTML()).toContain(`Bar`)
   })
+
+  it('can transform pasted text', () => {
+    const extension = union(
+      defineTestExtension(),
+      defineTextReplacePasteRule('Foo', 'Bar'),
+    )
+    const { editor } = setupTestFromExtension(extension)
+    editor.view.pasteText('Foo')
+    expect(editor.getDocHTML()).not.toContain(`Foo`)
+    expect(editor.getDocHTML()).toContain(`Bar`)
+  })
 })
